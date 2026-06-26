@@ -1,0 +1,19 @@
+@import "styles.css";
+.section-catalogo {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.main-build-catalogo {
+  background-color: var(--main-gradient);
+  background: var(--main-gradient);
+  color: var(--text-headline);
+  text-shadow: 0 0 5px var(--accent-spotlight);
+}
+.text-color {
+  color: var(--text-headline);
+}
+.text-details {
+  color: var(--text-details);
+}

@@ -1,0 +1,206 @@
+:root {
+  /* CANVAS (O Showroom) */
+  --bg-showroom-floor: #090909; /* Fundo principal onde os carros flutuam */
+  --bg-showroom-card: #12110f; /* Base para destacar fichas ou especificações */
+  --bg-showroom-deep: #030303; /* Um azul-fundo quase preto para rodapés ou áreas imersivas */
+  --bg-showroom-surface: #1c1a17; /* Um tom ligeiramente mais claro para inputs de formulários ou botões secundários */
+
+  /* CONTRASTE E LEITURA */
+  --text-headline: #ffffff; /* Títulos de impacto (Marca, Modelo, Edição) */
+  --text-details: #e3dec3; /* Dados técnicos, histórico e parágrafos */
+  --text-subtle: #a39e8e; /* Perfeito para legendas, marcas d'água ou etiquetas de "Ano/Km" */
+  --text-dark-glare: #5c584f; /* Ideal para placeholder de busca ou textos desativados */
+
+  /* LUZ DE DESTAQUE (The Spotlight) */
+  --accent-spotlight: #c5a880; /* Ciano: Usado apenas no botão principal de conversão */
+  --accent-spotlight-hover: #dfcbb5; /* Uma versão mais clara e iluminada para quando o usuário passa o mouse no botão */
+  --accent-spotlight-muted: #947d5e; /* Um tom mais sóbrio para links secundários ou bordas ativas */
+  --border-line: #24211c; /* Linhas que delimitam os espaços do layout */
+  --border-light: #38342c; /* Para destacar a divisão de um card flutuante */
+  --border-dark: #141311; /* Linha ultra sutil para divisões quase imperceptíveis */
+
+  --main-gradient: linear-gradient(
+    to bottom,
+    var(--bg-showroom-deep) 0%,
+    var(--bg-showroom-floor) 10%,
+    var(--accent-spotlight-hover) 50%,
+    var(--bg-showroom-floor) 90%,
+    var(--bg-showroom-deep) 100%
+  );
+
+}
+html {
+  scroll-behavior: smooth;
+}
+.main-build {
+  background: var(--main-gradient);
+  color: var(--text-headline);
+  text-shadow: 0 0 5px var(--accent-spotlight);
+}
+.section-1,
+.section-2,
+.section-3,
+.section-4 {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.section-1 {
+  background-color: var(--bg-showroom-floor);
+  background-image:
+    linear-gradient(to bottom, #090909, #0909098c), url("imagens/showroom.png");
+  background-size: cover;
+  background-position: center;
+}
+.section-2 {
+  background-color: var(--bg-showroom-surface);
+  background-image:
+    linear-gradient(to bottom, #090909, #09090970), url("imagens/catalogo.png");
+  background-size: cover;
+  background-position: center;
+}
+.section-3 {
+  background-color: var(--bg-showroom-card);
+  background-image:
+    linear-gradient(to bottom, #090909, #0909095b), url("imagens/sobre.png");
+  background-size: cover;
+  background-position: center;  
+}
+.btn {
+  background-color: var(--accent-spotlight);
+  color: var(--bg-showroom-floor);
+  border: 1px solid var(--accent-spotlight-muted);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: var(--accent-spotlight-muted);
+  color: var(--border-light);
+  border: 1px solid var(--accent-spotlight-hover);
+  box-shadow: 0 0 5px var(--accent-spotlight);
+  transition:
+    background-color 0.5s ease-in-out,
+    border-color 0.1s ease-in-out;
+}
+.card-sobre {
+  background-color: var(--bg-showroom-card);
+  color: var(--text-details);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 0 10px var(--accent-spotlight-muted);
+  border-radius: 20px;
+}
+.card-carros{
+  background-color: var(--bg-showroom-card);
+  color: var(--text-details);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 0 10px var(--accent-spotlight-muted);
+  border-radius: 20px;
+}
+/* ==========================================================================
+   PADRONIZAÇÃO AUTOMÁTICA DAS IMAGENS DOS CARDS
+   ========================================================================== */
+
+.card-carros .card-img-top {
+  width: 100%;          /* Força a imagem a ocupar toda a largura do card */
+  height: 220px;        /* Define uma altura fixa idêntica para todas (ajuste se quiser maior ou menor) */
+  object-fit: cover;    /* A MÁGICA AQUI: corta e encaixa a foto sem distorcer ou esticar o carro */
+  object-position: center; /* Garante que o foco do corte seja sempre no centro da foto */
+  border-top-left-radius: 20px;  /* Mantém as bordas arredondadas do seu card */
+  border-top-right-radius: 20px; /* Mantém as bordas arredondadas do seu card */
+  background-color: #000; /* Preenche com fundo preto caso a imagem demore um segundo para carregar */
+}
+
+/* ==========================================================================
+   MINI CARDS TÉCNICOS (Ficha Técnica dos Carros)
+   ========================================================================== */
+
+.card-tecnico {
+  position: relative;
+  background-color: var(--bg-showroom-surface) !important; /* #1c1a17 */
+  border: 1px solid var(--border-light) !important; /* #38342c */
+  border-radius: 6px;
+  padding: 12px 5px;
+  overflow: hidden; /* Garante que os fundos animados não vazem as bordas */
+  cursor: pointer;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+}
+
+/* Hover Global do Card */
+.card-tecnico:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-spotlight) !important; /* Acende a borda em dourado */
+  box-shadow: 0 4px 12px rgba(197, 168, 128, 0.1), 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   CAMADAS DE BACKGROUND ANIMADAS (Progresso)
+   ========================================================================== */
+
+.bg-progresso {
+  position: absolute;
+  z-index: 1;
+}
+
+/* ⬇️ Opção 1: De baixo para cima (Usado em Potência e Velocidade Máxima) */
+.bg-baixo-cima {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0; /* Começa zerado */
+  background: linear-gradient(to top, var(--bg-showroom-card), var(--border-line));
+  transition: height 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Transição suave via CSS */
+}
+
+.card-tecnico:hover .bg-baixo-cima {
+  height: 100%;
+}
+
+/* ➡️ Opção 2: Linha Dinâmica da Esquerda para a Direção (Usado no 0 a 100 km/h) */
+.bg-esquerda-direita {
+  top: auto;
+  bottom: 0; /* Fixado perfeitamente na base inferior do card */
+  left: 0;
+  height: 3px; /* Espessura de linha fina elegante */
+  width: 0; /* Começa em 0% e o JS vai controlar a largura dinamicamente */
+  background: linear-gradient(to right, var(--accent-spotlight-muted), var(--accent-spotlight)); 
+}
+
+/* ==========================================================================
+   CONTEÚDO E TEXTOS DOS CARDS
+   ========================================================================== */
+
+/* Garante que os textos fiquem acima das animações de fundo */
+.conteudo-card {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column; /* Força o alinhamento vertical (Nome em cima, número embaixo) */
+  align-items: center;
+}
+
+.titulo-tecnico {
+  color: var(--text-subtle);
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px; /* Espaçamento sutil para desgrudar do número */
+}
+
+.bloco-numero {
+  display: block;
+}
+
+.numero-animado, .unidade {
+  color: var(--text-headline);
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.4s ease;
+}
+
+/* Transiciona as cores dos números para dourado claro quando o card recebe hover */
+.card-tecnico:hover .numero-animado,
+.card-tecnico:hover .unidade {
+  color: var(--accent-spotlight-hover);
+}

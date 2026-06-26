@@ -1,0 +1,5 @@
+@import url("styles.css");
+.footer-color {
+  background-color: var(--bg-showroom-floor);
+  color: var(--text-headline);
+}

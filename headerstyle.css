@@ -1,0 +1,107 @@
+@import url("styles.css");
+.header-color {
+  background-color: var(--bg-showroom-deep);
+  color: var(--text-headline);
+  text-shadow: 0px 0px 6px var(--accent-spotlight);
+}
+.navbar {
+  background-color: var(--bg-showroom-deep);
+}
+.navbar-brand,
+.nav-item .nav-link {
+  color: var(--accent-spotlight);
+}
+.input-search {
+  background-color: var(--text-dark-glare);
+  color: var(--text-headline);
+  border: 1px solid var(--border-line);
+}
+.button-search {
+  background-color: var(--accent-spotlight);
+  color: var(--bg-showroom-floor);
+  border: 1px solid var(--accent-spotlight-muted);
+}
+.input-search:hover,
+.input-search:focus {
+  background-color: var(--text-dark-glare);
+  color: var(--text-details);
+  border: 1px solid var(--accent-spotlight);
+  box-shadow: 0 0 5px var(--accent-spotlight);
+  transition:
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+.button-search:hover {
+  background-color: var(--accent-spotlight-muted);
+  color: var(--bg-showroom-floor);
+  border: 1px solid var(--accent-spotlight-hover);
+  box-shadow: 0 0 5px var(--accent-spotlight);
+  transition:
+    background-color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
+}
+.nav-link:active,
+.nav-link:focus,
+.nav-link:hover {
+  color: var(--accent-spotlight-muted) !important;
+}
+.menu-button {
+  background-color: var(--bg-showroom-surface);
+  border: 2px solid var(--border-light);
+}
+.menu-button:hover,
+.menu-button:focus,
+.menu-button:active {
+  background-color: var(--bg-showroom-surface);
+  border: 2px solid var(--accent-spotlight-hover);
+  box-shadow: 0 0 5px var(--accent-spotlight);
+  transition:
+    border-color 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+}
+
+/* Container que agrupa o formulário e o aviso */
+.search-container-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px; /* Ajuste o tamanho máximo conforme o design do seu header */
+}
+
+/* Estilização do Aviso (Visual Premium combinando com o Showroom) */
+.search-tip {
+  position: absolute;
+  top: 105%; /* Joga o aviso logo abaixo do input */
+  left: 0;
+  width: calc(100% - 8px); /* Alinha com a largura do input descontando a margem do botão */
+  background-color: var(--bg-showroom-surface);
+  color: var(--text-details);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  
+  /* Estado inicial: Escondido e levemente deslocado para baixo */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(5px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+/* Destaca o "m" e os exemplos com o tom dourado do projeto */
+.search-tip strong, 
+.search-tip code {
+  color: var(--accent-spotlight);
+  background: transparent;
+  font-weight: bold;
+}
+
+/* MÁGICA DO CSS: Quando o usuário clica no input dentro do wrapper, o aviso aparece */
+.search-container-wrapper:focus-within .search-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  border-color: var(--accent-spotlight); /* Borda acende em dourado */
+}

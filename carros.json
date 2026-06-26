@@ -1,0 +1,62 @@
+[
+  {
+    "marca": "Lamborghini",
+    "modelo": "Huracán STO",
+    "imagem": "imagens/lamborghini-huracan-sto.png",
+    "ano": "2021 2022 2023 2024",
+    "motor": "5.2L V10 Aspirado",
+    "tracao": "Traseira (RWD)",
+    "potencia": 640,
+    "velocidadeMax": 310,
+    "zeroA100": 3.0,
+    "precoTexto": "R$ 3,8 milhões - R$ 4,5 milhões",
+    "precoFiltro": 3800000,
+    "precoFiltroMax": 4500000,
+    "destaque": true
+  },
+  {
+    "marca": "Mercedes-Benz",
+    "modelo": "AMG GT Black Series",
+    "imagem": "imagens/mercedes-amg-gt-black-series.png",
+    "ano": "2021",
+    "motor": "4.0L V8 Biturbo",
+    "tracao": "Traseira (RWD)",
+    "potencia": 730,
+    "velocidadeMax": 325,
+    "zeroA100": 3.2,
+    "precoTexto": "R$ 3,8 milhões - R$ 5,1 milhões",
+    "precoFiltro": 3800000,
+    "precoFiltroMax": 5100000,
+    "destaque": true
+  },
+  {
+    "marca": "Ferrari",
+    "modelo": "812 Superfast",
+    "imagem": "imagens/ferrari-812-superfast.png",
+    "ano": "2017 2018 2019 2020 2021",
+    "motor": "6.5L V12 Aspirado",
+    "tracao": "Traseira (RWD)",
+    "potencia": 800,
+    "velocidadeMax": 340,
+    "zeroA100": 2.9,
+    "precoTexto": "R$ 5 milhões - R$ 6 milhões",
+    "precoFiltro": 5000000,
+    "precoFiltroMax": 6000000,
+    "destaque": true
+  },
+  {
+    "marca": "McLaren",
+    "modelo": "765 LT",
+    "imagem": "imagens/mclaren-765-lt.jpeg",
+    "ano": "2020 2021",
+    "motor": "4.0L V8 Biturbo",
+    "tracao": "Traseira (RWD)",
+    "potencia": "765",
+    "velocidadeMax": "330",
+    "zeroA100": "2,8",
+    "precoTexto": "R$ 4,7 milhões - R$ 5,8 milhões",
+    "precoFiltro": 4700000,
+    "precoFiltroMax": 5800000,
+    "destaque": false
+  }
+]
